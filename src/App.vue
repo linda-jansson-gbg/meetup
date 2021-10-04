@@ -1,27 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <Events :events="events" />
+    <Menu :joined="joined" />
+    <Events
+      :joined="joined"
+      :events="events"
+      @join="handleJoin"
+      @decline="handleDecline"
+    />
   </div>
 </template>
 
 <script>
 import Events from './components/Events.vue';
+import Menu from './components/Menu.vue';
 import { createEvents } from './js/events';
 
 export default {
   name: 'App',
   components: {
     Events,
+    Menu,
   },
   data() {
     return {
       events: [],
+      joined: [],
     };
   },
   mounted() {
     this.events = createEvents();
-    console.log(this.events);
+    const joined = localStorage.joinedEvents ?? '[]';
+    this.joined = JSON.parse(joined);
+  },
+  methods: {
+    handleJoin(id) {
+      this.joined.push(id);
+    },
+    handleDecline(id) {
+      this.joined.splice(this.joined.indexOf(id), 1);
+    },
+  },
+  watch: {
+    joined() {
+      localStorage.joinedEvents = JSON.stringify(this.joined);
+    },
   },
 };
 </script>

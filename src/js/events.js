@@ -7,6 +7,7 @@ export function createEvents() {
       description:
         'Linda gör sin LIA hos oss från 22 November. Kom och fira in henne på kontoret!  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure iste, quod hic adipisci voluptates maxime ad fugit fuga aliquid!',
       date: 1.009,
+      time: '08:00',
       location: 'Gatan',
       img: '../assets/volvo.png',
     },
@@ -17,6 +18,7 @@ export function createEvents() {
       description:
         'Kalasigt värre blir det.  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure iste, quod hic adipisci voluptates maxime ad fugit fuga aliquid!',
       date: 1.003,
+      time: '11:40',
       location: 'Gatan',
       img: '../assets/queenslab.jpeg',
     },
@@ -27,6 +29,7 @@ export function createEvents() {
       description:
         'Vi kör ett skojigt event hos oss på Lindholmspiren.  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure iste, quod hic adipisci voluptates maxime ad fugit fuga aliquid!',
       date: 1.006,
+      time: '16:45',
       location: 'Gatan',
       img: '../assets/ericsson.png',
     },
@@ -37,6 +40,7 @@ export function createEvents() {
       description:
         'Återigen dags för att göra typ ingenting.  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure iste, quod hic adipisci voluptates maxime ad fugit fuga aliquid!',
       date: 1.01,
+      time: '10:30',
       location: 'Gatan',
       img: '../assets/grebban.png',
     },
@@ -47,6 +51,7 @@ export function createEvents() {
       description:
         'Kom och häng med oss på Dearfriends och lär dig absolut ingenting.  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure iste, quod hic adipisci voluptates maxime ad fugit fuga aliquid!',
       date: 1.002,
+      time: '18:20',
       location: 'Gatan',
       img: '../assets/dearfriends.svg',
     },
@@ -57,6 +62,7 @@ export function createEvents() {
       description:
         'Kolla kolla vad vi kan göra med ett tennisrack.  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure iste, quod hic adipisci voluptates maxime ad fugit fuga aliquid!',
       date: 1.004,
+      time: '19:00',
       location: 'Gatan',
       img: '../assets/knowit.png',
     },
@@ -67,6 +73,7 @@ export function createEvents() {
       description:
         'Tjofadderittan vad det går.  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure iste, quod hic adipisci voluptates maxime ad fugit fuga aliquid!',
       date: 1.007,
+      time: '16:00',
       location: 'Gatan',
       img: '../assets/hiq.png',
     },
@@ -77,6 +84,7 @@ export function createEvents() {
       description:
         'Skoj som tusan kommer vi ha när vi paddlar kanot genom skogen',
       date: 1.002,
+      time: '13:45',
       location: 'Gatan',
       img: '../assets/knowit.png',
     },
@@ -87,6 +95,7 @@ export function createEvents() {
       description:
         'Spring genom slottis så blir du glad. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure iste, quod hic adipisci voluptates maxime ad fugit fuga aliquid!',
       date: 1.002,
+      time: '12:50',
       location: 'Gatan',
       img: '../assets/mild.png',
     },
@@ -97,6 +106,7 @@ export function createEvents() {
       description:
         'Välkomna på kickoff i Jonseredsstugan.  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure iste, quod hic adipisci voluptates maxime ad fugit fuga aliquid!',
       date: 1.001,
+      time: '15:15',
       location: 'Gatan',
       img: '../assets/volvo.png',
     },
@@ -107,6 +117,7 @@ export function createEvents() {
       description:
         'Inga queens utan kings. Head.  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure iste, quod hic adipisci voluptates maxime ad fugit fuga aliquid!',
       date: 1.01,
+      time: '18:30',
       location: 'Gatan',
       img: '../assets/queenslab.jpeg',
     },
