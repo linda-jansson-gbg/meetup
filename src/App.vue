@@ -1,17 +1,27 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Events :events="events" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Events from './components/Events.vue';
+import { createEvents } from './js/events';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld,
+    Events,
+  },
+  data() {
+    return {
+      events: [],
+    };
+  },
+  mounted() {
+    this.events = createEvents();
+    console.log(this.events);
   },
 };
 </script>
