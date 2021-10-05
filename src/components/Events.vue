@@ -5,7 +5,7 @@
       <h2>{{ event.company }}</h2>
       <p>{{ event.description }}</p>
       <p>{{ event.location }}</p>
-      <p>{{ setDate(event.date) + event.time }}</p>
+      <p>{{ event.date + event.time }}</p>
       <button
         v-if="!joined.includes(event.id)"
         @click="$emit('join', event.id)"

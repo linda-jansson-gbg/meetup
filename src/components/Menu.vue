@@ -1,8 +1,10 @@
 <template>
   <header>
-    <h1>JM</h1>
-    <button>Past events</button>
-    <button>Upcoming events <i class="material-icons">today</i></button>
+    <h1 @click="$emit('changeView', 'events')">JM</h1>
+    <button @click="$emit('changeView', 'past')">Past events</button>
+    <button @click="$emit('changeView', 'profile')">
+      Upcoming events <i class="material-icons">today</i>
+    </button>
     <p class="count">{{ joined.length }}</p>
   </header>
 </template>
