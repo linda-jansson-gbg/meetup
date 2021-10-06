@@ -1,26 +1,91 @@
 <template>
   <section>
     <article v-for="(event, index) in pastEvents" :key="index">
+      <span class="yellow">
+        <i class="material-icons">today</i>
+        <p>{{ event.date + event.time }}</p>
+      </span>
       <h1>{{ event.name }}</h1>
-      <p>{{ event.date }} {{ event.time }}</p>
-      <p>id {{ event.id }}</p>
-      <ul>
-        <li v-for="(review, index) in event.reviews" :key="index">
-          <i
-            class="material-icons"
-            v-for="(n, index) in review.rating"
+      <i>by: {{ event.company }}</i>
+      <span class="green">
+        <i class="material-icons">location_on</i>
+        <p>{{ event.location }}</p>
+      </span>
+      <p class="description">{{ event.description }}</p>
+      <h1 @click="showReview = !showReview" class="reviews">
+        {{ showReview ? 'Hide reviews' : 'Show reviews' }}
+      </h1>
+      <div v-if="showReview">
+        <ul>
+          <li
+            class="review"
+            v-for="(review, index) in event.reviews"
             :key="index"
-            >star_outline</i
           >
-          {{ review.review }} {{ review.name }} {{ review.date }}
-          {{ review.time }}
-        </li>
-      </ul>
-      <ReviewForm
-        v-if="event.reviews.length < 3"
-        @submitReview="submitReview($event, event.id)"
-      />
-      <p v-if="showThanks" class="thanks">Thank you!</p>
+            <span v-if="review.rating === 5">
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star</i>
+              <i class="green"
+                >Says: {{ review.name }} at: {{ review.time }}
+                {{ review.date }}</i
+              >
+            </span>
+            <span v-if="review.rating === 4">
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star_outline</i>
+              <i class="green"
+                >Says: {{ review.name }} at: {{ review.time }}
+                {{ review.date }}</i
+              >
+            </span>
+            <span v-if="review.rating === 3">
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star_outline</i>
+              <i class="material-icons stars">star_outline</i>
+              <i class="green"
+                >Says: {{ review.name }} at: {{ review.time }}
+                {{ review.date }}</i
+              >
+            </span>
+            <span v-if="review.rating === 2">
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star_outline</i>
+              <i class="material-icons stars">star_outline</i>
+              <i class="material-icons stars">star_outline</i>
+              <i class="green"
+                >Says: {{ review.name }} at: {{ review.time }}
+                {{ review.date }}</i
+              >
+            </span>
+            <span v-if="review.rating === 1">
+              <i class="material-icons stars">star</i>
+              <i class="material-icons stars">star_outline</i>
+              <i class="material-icons stars">star_outline</i>
+              <i class="material-icons stars">star_outline</i>
+              <i class="material-icons stars">star_outline</i>
+              <i class="green"
+                >Says: {{ review.name }} at: {{ review.time }}
+                {{ review.date }}</i
+              >
+            </span>
+            <p>{{ review.review }}</p>
+          </li>
+        </ul>
+        <ReviewForm
+          v-if="event.reviews.length < 3"
+          @submitReview="submitReview($event, event.id)"
+        />
+        <h1 v-if="showThanks" class="thanks">Thank you for your feedback!</h1>
+      </div>
     </article>
   </section>
 </template>
@@ -38,6 +103,8 @@ export default {
       pastEvents: [],
       newPastEvents: [],
       showThanks: false,
+      showReview: false,
+      index: 0,
     };
   },
   mounted() {
@@ -60,7 +127,10 @@ export default {
       this.showThanks = true;
       setTimeout(() => {
         this.showThanks = false;
-      }, 2000);
+      }, 3000);
+    },
+    showReviews() {
+      this.showReviews;
     },
   },
   watch: {
@@ -71,27 +141,39 @@ export default {
 };
 </script>
 
-<style>
-textarea {
-  height: 5rem;
+<style scoped>
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 15rem;
+  border-bottom: 1px solid #e4e4e4;
 }
-p.thanks {
-  animation-duration: 2s;
-  animation-name: fadeout;
+h1.reviews {
+  padding: 2rem 0 0.5rem;
 }
-
-@keyframes fadeout {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 100;
-  }
-  75% {
-    opacity: 100;
-  }
-  100% {
-    opacity: 0;
-  }
+ul {
+  list-style-type: none;
+  padding: 1rem;
+}
+.stars {
+  color: #dead1d;
+}
+.description {
+  max-width: 40rem;
+}
+span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 3rem;
+}
+span i {
+  margin-right: 0.3rem;
+}
+.review {
+  border-bottom: 1px solid #e4e4e4;
+  border-top: 1px solid #e4e4e4;
+  padding: 0.5rem 0 1rem 0;
 }
 </style>

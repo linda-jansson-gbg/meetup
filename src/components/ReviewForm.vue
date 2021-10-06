@@ -1,28 +1,34 @@
 <template>
   <section>
-    <p>What did you think?</p>
+    <h1>What did you think?</h1>
     <input
       v-on:blur="change"
       type="text"
       placeholder="Name"
       v-model="name"
-    /><br />
+    /><span v-if="nameMissing" class="error"> * your name is missing</span
+    ><br />
     <textarea
       v-on:blur="change"
       type="text"
       placeholder="Review"
       v-model="review"
-    /><br />
-    <label for="rating">Rating:</label>
+    /><span v-if="reviewMissing" class="error"> * your review is missing</span
+    ><br />
+    <label for="rating">Rating: </label><br />
     <!--<img src="../assets/star.svg" alt="" />-->
     <select v-on:blur="change" name="" id="rating" v-model.number="rating">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
+      <option value="1">★</option>
+      <option value="2">★★</option>
+      <option value="3">★★★</option>
+      <option value="4">★★★★</option>
+      <option value="5">★★★★★</option>
     </select>
+
     <button @click="submit">Submit</button>
+    <span v-if="ratingMissing" class="error">
+      * a rating would be appreciated</span
+    >
   </section>
 </template>
 
@@ -33,6 +39,9 @@ export default {
       name: '',
       review: '',
       rating: null,
+      nameMissing: false,
+      reviewMissing: false,
+      ratingMissing: false,
     };
   },
   methods: {
@@ -57,7 +66,26 @@ export default {
         time: time,
         block: true,
       };
-      if (this.name !== '' && this.review !== '' && this.rating !== null) {
+      if (this.name.trim() === '') {
+        this.nameMissing = true;
+        this.name = '';
+      } else {
+        this.nameMissing = false;
+      }
+      if (this.review.trim() === '') {
+        this.reviewMissing = true;
+        this.review = '';
+      } else {
+        this.reviewMissing = false;
+      }
+      if (this.rating === null) {
+        this.ratingMissing = true;
+      }
+      if (
+        this.name.trim() !== '' &&
+        this.review.trim() !== '' &&
+        this.rating !== null
+      ) {
         this.$emit('submitReview', eventReview);
         this.name = '';
         this.review = '';
@@ -68,15 +96,16 @@ export default {
 };
 </script>
 
-<style>
-input,
-textarea,
-select,
-button {
-  border: 1px solid #ccc;
-  outline: none;
-}
+<style scoped>
 .red {
-  border: 1px solid red;
+  border: 1px solid #da2626;
+}
+.error {
+  font-size: 0.9em;
+  color: #da2626;
+  display: block;
+}
+button {
+  display: inline;
 }
 </style>

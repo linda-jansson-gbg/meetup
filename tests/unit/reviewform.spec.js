@@ -10,7 +10,15 @@ describe('ReviewForm.vue', () => {
     // const input = wrapper.find('input');
     // await input.setValue('');
     // const textarea = wrapper.find('textarea');
-    // await textarea.trigger('click');
+    // await textarea.setValue('change');
     // expect(input.classes('red')).toBeTruthy();
+  });
+  it('should show error message if input fields are empty when button is clicked', async () => {
+    const input = wrapper.find('input');
+    await input.setValue('');
+    const button = wrapper.find('button');
+    await button.trigger('click');
+    const message = wrapper.find('.error');
+    expect(message.text()).toBe('* your name is missing');
   });
 });

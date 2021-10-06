@@ -37,10 +37,10 @@ describe('Profile.vue', () => {
     const events = wrapper.findAll('article').length;
     expect(events).toEqual(2);
   });
-  it('should p tag with no events if no events are joined', async () => {
+  it('should show message containing Find an event if no events are joined', async () => {
     await wrapper.setProps({ userEvents: [] });
-    const message = wrapper.find('p');
-    expect(message.text()).toBe('No events');
+    const message = wrapper.find('.profile');
+    expect(message.text()).toContain('Find an event');
   });
   it('should emit to remove the event if button is clicked', async () => {
     const button = wrapper.find('button');
