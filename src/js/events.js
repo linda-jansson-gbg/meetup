@@ -6,7 +6,7 @@ export function createEvents() {
       name: 'Välkomna Linda',
       description:
         'Linda gör sin LIA hos oss från 22 November. Kom och fira in henne på kontoret! Things vehicula laorizzle shut the shizzle up.!',
-      date: setDate(1.009),
+      date: setDate(1.0022),
       time: '18:20',
       location: 'Gamla Varvsgatan',
       img: '../assets/volvo.png',
@@ -17,7 +17,7 @@ export function createEvents() {
       name: 'Bugg för nybörjare',
       description:
         'Kalasigt värre blir det. Fo shizzle daahng dawg. Integizzle semper you son of a bizzle sizzle shiz.',
-      date: setDate(1.003),
+      date: setDate(1.0021),
       time: '10:30',
       location: 'Kaptensgatan',
       img: '../assets/queenslab.jpeg',
@@ -28,7 +28,7 @@ export function createEvents() {
       name: 'Diskussion om MINI-LINK TN',
       description:
         'Vi kör ett skojigt event hos oss på Lindholmspiren. Praesent shiznit mi bizzle mauris phat bibendizzle. Away get down get down viverra lectus.',
-      date: setDate(1.006),
+      date: setDate(1.0035),
       time: '16:45',
       location: 'Amiralitetsgatan',
       img: '../assets/ericsson.png',
@@ -39,7 +39,7 @@ export function createEvents() {
       name: 'Föreläsning om yoga',
       description:
         'Återigen dags för att göra typ ingenting.  Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-      date: setDate(1.01),
+      date: setDate(1.0049),
       time: '10:30',
       location: 'Hängmattan Majorna',
       img: '../assets/grebban.png',
@@ -61,7 +61,7 @@ export function createEvents() {
       name: 'Hela havet stormar',
       description:
         'Kolla kolla vad vi kan göra med ett tennisrack. Sizzle go to hizzle fo shizzle, pulvinizzle im in the shizzle, condimentum eget, yo mamma id, dizzle.',
-      date: setDate(1.004),
+      date: setDate(1.0048),
       time: '19:00',
       location: 'Karl Johansgatan',
       img: '../assets/knowit.png',
@@ -72,7 +72,7 @@ export function createEvents() {
       name: 'Ölhävartävling',
       description:
         'Tjofadderittan vad det går. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quas sit eaque labore, sed quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-      date: setDate(1.007),
+      date: setDate(1.004),
       time: '16:00',
       location: 'Styrmansgatan',
       img: '../assets/hiq.png',
@@ -83,7 +83,7 @@ export function createEvents() {
       name: 'Strukturera din struktur',
       description:
         'Skoj som tusan kommer vi ha när vi paddlar kanot genom skogen. Black quizzle. Mauris ligula urna, tempor id, scelerisque venenatizzle.',
-      date: setDate(1.005),
+      date: setDate(1.003),
       time: '13:45',
       location: 'Koopmansgatan',
       img: '../assets/knowit.png',
@@ -94,7 +94,7 @@ export function createEvents() {
       name: 'Lär dig simma',
       description:
         'Spring genom slottis så blir du glad. Lorem ipsum dolor, sit amet consectetur adipisicing elit!',
-      date: setDate(1.0029),
+      date: setDate(1.00099),
       time: '12:50',
       location: 'Delawaregatan',
       img: '../assets/mild.png',
@@ -105,7 +105,7 @@ export function createEvents() {
       name: 'Kickoff inför hösten',
       description:
         'Välkomna på kickoff i Jonseredsstugan. Maecenizzle my shizz crazy izzle lectus.',
-      date: setDate(1.0019),
+      date: setDate(1.0009),
       time: '15:15',
       location: 'Kommendörsgatan',
       img: '../assets/volvo.png',
@@ -116,9 +116,20 @@ export function createEvents() {
       name: 'Öl på Queenshead',
       description:
         'Inga queens utan kings. Head. Phat eu fo shizzle my nizzle. Aenizzle tempizzle ass boom shackalack.',
-      date: setDate(1.0101),
+      date: setDate(1.0001),
       time: '18:30',
       location: 'Klareborgsgatan',
+      img: '../assets/queenslab.jpeg',
+    },
+    {
+      id: 11,
+      company: 'Humblebee',
+      name: 'Shopping på korvmojjen',
+      description:
+        'Ät dig mätt på korv. Lorem ipsum dolor, sit amet consectetur adipisicing elit!',
+      date: setDate(1.017),
+      time: '18:30',
+      location: 'Lotsgatan',
       img: '../assets/queenslab.jpeg',
     },
   ];

@@ -7,14 +7,24 @@
       <button
         class="sort-btn"
         :class="{ activeSort: activeSort === 'order' }"
-        @click="$emit('sort', 'order')"
+        @click="
+          $emit('sort', 'order');
+          showFilter = false;
+          showFilteredEvents = false;
+          activeFilter = '';
+        "
       >
         Order
       </button>
       <button
         class="sort-btn"
         :class="{ activeSort: activeSort === 'company' }"
-        @click="$emit('sort', 'company')"
+        @click="
+          $emit('sort', 'company');
+          showFilter = false;
+          showFilteredEvents = false;
+          activeFilter = '';
+        "
       >
         Company
       </button>
@@ -23,7 +33,9 @@
         :class="{ activeSort: activeSort === 'date' }"
         @click="
           $emit('sort', 'date');
-          showFilter();
+          showFilteredEvents = false;
+          setFilter();
+          activeFilter = '';
         "
       >
         Date
@@ -31,12 +43,55 @@
       <button
         class="sort-btn place"
         :class="{ activeSort: activeSort === 'place' }"
-        @click="$emit('sort', 'place')"
+        @click="
+          $emit('sort', 'place');
+          showFilter = false;
+          showFilteredEvents = false;
+          activeFilter = '';
+        "
       >
         Place
       </button>
     </div>
-    <section>
+    <div v-if="showFilter" class="filter">
+      <button
+        class="sort-btn"
+        :class="{ activeFilter: activeFilter === 'thismonth' }"
+        @click="
+          filterEvents('thismonth');
+          showFilteredEvents = true;
+        "
+      >
+        This month
+      </button>
+      <button
+        class="sort-btn"
+        :class="{ activeFilter: activeFilter === 'nextmonth' }"
+        @click="
+          filterEvents('nextmonth');
+          showFilteredEvents = true;
+        "
+      >
+        Next month
+      </button>
+      <button
+        class="sort-btn"
+        :class="{ activeFilter: activeFilter === 'later' }"
+        @click="
+          filterEvents('later');
+          showFilteredEvents = true;
+        "
+      >
+        Later
+      </button>
+    </div>
+    <FilterEvents
+      v-if="showFilteredEvents"
+      :events="filteredEvents"
+      :joined="joined"
+      v-on="$listeners"
+    />
+    <section v-if="!showFilteredEvents">
       <article v-for="event in events" :key="event.id">
         <span class="yellow">
           <i class="material-icons">today</i>
@@ -69,8 +124,12 @@
 </template>
 
 <script>
+import FilterEvents from '../components/FilterEvents.vue';
 export default {
   name: 'Events',
+  components: {
+    FilterEvents,
+  },
   props: {
     events: Array,
     joined: Array,
@@ -78,22 +137,46 @@ export default {
   },
   data() {
     return {
-      //activeView: 'order',
+      showFilter: false,
+      showFilteredEvents: false,
+      filteredEvents: [],
+      activeFilter: '',
     };
   },
   methods: {
-    setDate(int) {
+    month(int) {
+      // Returns the month in number format. Int is an integer in the event array.
+      // Set int to 1 to return the current month
       let now = new Date(int * Date.now());
-      return now.toString().slice(0, 16);
+      return now.getMonth();
     },
-    showFilter() {
+    setFilter() {
+      // Show or hide the filter buttons
+      this.showFilter = !this.showFilter;
+    },
+    setDate(int) {
+      // Returns the day, month and year. Int is an integer in the event array
+      let futureDate = new Date(int * Date.now());
+      return futureDate.toString().slice(0, 16);
+    },
+    filterEvents(when) {
+      this.filteredEvents = [];
+      this.activeFilter = when;
       this.events.forEach((event) => {
-        console.log(this.getMonth(event.date));
+        if (when === 'thismonth') {
+          if (this.month(event.date) === this.month(1))
+            this.filteredEvents.push(event);
+        } else if (when === 'nextmonth') {
+          if (this.month(event.date) === this.month(1) + 1)
+            this.filteredEvents.push(event);
+        } else {
+          if (
+            this.month(event.date) > this.month(1) + 1 ||
+            this.month(event.date) < this.month(1)
+          )
+            this.filteredEvents.push(event);
+        }
       });
-    },
-    getMonth(int) {
-      let month = new Date(int * Date.now());
-      return month.toString().slice(4, 7);
     },
   },
 };
@@ -122,7 +205,8 @@ div.hero {
   align-items: flex-end;
   justify-content: flex-end;
 }
-.sort {
+.sort,
+.filter {
   padding: 1.5rem 0 0 0.5rem;
   background: #eeeeee;
 }

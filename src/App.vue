@@ -7,9 +7,9 @@
         :joined="joined"
         :events="events"
         :activeSort="activeSort"
-        @join="handleJoin"
-        @decline="handleDecline"
         @sort="handleSort"
+        v-on:decline="handleDecline"
+        v-on:join="handleJoin"
       />
       <Profile
         v-else-if="activeView === 'profile'"
@@ -156,7 +156,8 @@ button {
 .activeView {
   background-color: #4a4a4a;
 }
-.activeSort {
+.activeSort,
+.activeFilter {
   background-color: #acd7c8;
 }
 h3 {

@@ -14,7 +14,7 @@ describe('Events.vue', () => {
   });
   it('renders a article for every event', () => {
     const events = wrapper.findAll('article').length;
-    expect(events).toEqual(11);
+    expect(events).toEqual(12);
   });
   it('should emit an event when the join button is clicked', async () => {
     const button = wrapper.find('.join-btn');
