@@ -10,7 +10,7 @@ Create a meetup-app. Specifications on functionality:
 * Make a review on a past event
 
 Goal: A published Vue app for meetups with unit tests and Docker container.
-Using local storage is fine. Build the app using CD, TDD. Publish on Heroku.
+Using localstorage is fine. Build the app using CD, TDD. Publish on Heroku.
 
 GitHub Actions is used in this project.
 
