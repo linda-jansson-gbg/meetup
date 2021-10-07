@@ -140,7 +140,7 @@ export function createPastEvents() {
     {
       id: 0,
       company: 'Volvo',
-      name: 'Nya volvo-appen',
+      name: 'Nya Volvo-appen',
       description:
         'Phat eu fo shizzle my nizzle. Aenizzle tempizzle ass boom shackalack.',
       date: setDate(0.999),

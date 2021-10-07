@@ -16,6 +16,7 @@
     /><span v-if="reviewMissing" class="error"> * your review is missing</span
     ><br />
     <label for="rating">Rating: </label><br />
+    <!--<img src="../assets/star.svg" alt="" />-->
     <select v-on:blur="change" name="" id="rating" v-model.number="rating">
       <option value="1">★</option>
       <option value="2">★★</option>
@@ -79,10 +80,11 @@ export default {
         let time = now.toString().slice(16, 21);
         let eventReview = {
           date: date,
-          name: this.name.toUpperCase,
+          name: this.name,
           rating: this.rating,
-          review: this.review.toUpperCase,
+          review: this.review,
           time: time,
+          block: true,
         };
         this.$emit('submitReview', eventReview);
         this.name = '';
