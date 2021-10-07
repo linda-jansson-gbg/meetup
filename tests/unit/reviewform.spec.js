@@ -6,13 +6,6 @@ describe('ReviewForm.vue', () => {
   beforeEach(() => {
     wrapper = shallowMount(ReviewForm, {});
   });
-  it('should add class red to empty input when out of focus', async () => {
-    // const input = wrapper.find('input');
-    // await input.setValue('');
-    // const textarea = wrapper.find('textarea');
-    // await textarea.setValue('change');
-    // expect(input.classes('red')).toBeTruthy();
-  });
   it('should show error message if input fields are empty when button is clicked', async () => {
     const input = wrapper.find('input');
     await input.setValue('');

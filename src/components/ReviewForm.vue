@@ -16,7 +16,6 @@
     /><span v-if="reviewMissing" class="error"> * your review is missing</span
     ><br />
     <label for="rating">Rating: </label><br />
-    <!--<img src="../assets/star.svg" alt="" />-->
     <select v-on:blur="change" name="" id="rating" v-model.number="rating">
       <option value="1">★</option>
       <option value="2">★★</option>
@@ -97,6 +96,9 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  margin: 1rem 0 0.5rem;
+}
 .red {
   border: 1px solid #da2626;
 }

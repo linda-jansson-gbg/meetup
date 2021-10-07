@@ -49,7 +49,7 @@ describe('FilterEvents.vue', () => {
     const events = wrapper.find('article');
     const today = new Date();
     const date = today.toUTCString('default', { month: 'short' });
-    const thisMonth = date.slice(9, 11);
+    const thisMonth = date.slice(8, 11);
     expect(events.text()).toContain(thisMonth);
   });
 });

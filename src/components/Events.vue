@@ -229,9 +229,15 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   section {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (max-width: 414px) {
+  div.hero {
+    height: 20rem;
+    padding: 2rem;
   }
 }
 </style>

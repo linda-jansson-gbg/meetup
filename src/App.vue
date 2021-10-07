@@ -177,7 +177,7 @@ select {
 }
 textarea {
   height: 5rem;
-  width: 25rem;
+  width: 100%;
 }
 select {
   background: none;

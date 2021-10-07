@@ -16,70 +16,30 @@
         {{ showReview ? 'Hide reviews' : 'Show reviews' }}
       </h1>
       <div v-if="showReview">
-        <ul>
-          <li
-            class="review"
-            v-for="(review, index) in event.reviews"
-            :key="index"
+        <div
+          class="review"
+          v-for="(review, index) in event.reviews"
+          :key="index"
+        >
+          <i
+            v-for="(n, index) in review.rating"
+            :key="index + 'a'"
+            class="material-icons stars"
+            >star</i
           >
-            <span v-if="review.rating === 5">
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star</i>
-              <i class="green"
-                >Says: {{ review.name }} at: {{ review.time }}
-                {{ review.date }}</i
-              >
-            </span>
-            <span v-if="review.rating === 4">
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star_outline</i>
-              <i class="green"
-                >Says: {{ review.name }} at: {{ review.time }}
-                {{ review.date }}</i
-              >
-            </span>
-            <span v-if="review.rating === 3">
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star_outline</i>
-              <i class="material-icons stars">star_outline</i>
-              <i class="green"
-                >Says: {{ review.name }} at: {{ review.time }}
-                {{ review.date }}</i
-              >
-            </span>
-            <span v-if="review.rating === 2">
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star_outline</i>
-              <i class="material-icons stars">star_outline</i>
-              <i class="material-icons stars">star_outline</i>
-              <i class="green"
-                >Says: {{ review.name }} at: {{ review.time }}
-                {{ review.date }}</i
-              >
-            </span>
-            <span v-if="review.rating === 1">
-              <i class="material-icons stars">star</i>
-              <i class="material-icons stars">star_outline</i>
-              <i class="material-icons stars">star_outline</i>
-              <i class="material-icons stars">star_outline</i>
-              <i class="material-icons stars">star_outline</i>
-              <i class="green"
-                >Says: {{ review.name }} at: {{ review.time }}
-                {{ review.date }}</i
-              >
-            </span>
-            <p>{{ review.review }}</p>
-          </li>
-        </ul>
+          <i
+            v-for="(n, index) in 5 - review.rating"
+            :key="index + 'b'"
+            class="material-icons stars"
+            >star_outline</i
+          >
+          <span class="green"
+            >Says: {{ review.name }} at: {{ review.time }}
+            {{ review.date }}</span
+          >
+          <p>{{ review.review }}</p>
+        </div>
+
         <ReviewForm
           v-if="event.reviews.length < 3"
           @submitReview="submitReview($event, event.id)"
@@ -162,11 +122,14 @@ ul {
 .description {
   max-width: 40rem;
 }
+h1.thanks {
+  margin-top: 1rem;
+}
 span {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 3rem;
+  height: 2.5rem;
 }
 span i {
   margin-right: 0.3rem;

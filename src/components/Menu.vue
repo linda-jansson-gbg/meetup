@@ -40,6 +40,7 @@ header {
   position: sticky;
   top: 0;
   background: #fff;
+  flex-wrap: wrap;
 }
 img {
   max-width: 4rem;
