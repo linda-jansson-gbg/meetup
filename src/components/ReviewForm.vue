@@ -54,17 +54,6 @@ export default {
       }
     },
     submit() {
-      let now = new Date(Date.now());
-      let date = now.toString().slice(0, 16);
-      let time = now.toString().slice(16, 21);
-      let eventReview = {
-        date: date,
-        name: this.name,
-        rating: this.rating,
-        review: this.review,
-        time: time,
-        block: true,
-      };
       if (this.name.trim() === '') {
         this.nameMissing = true;
         this.name = '';
@@ -85,6 +74,16 @@ export default {
         this.review.trim() !== '' &&
         this.rating !== null
       ) {
+        let now = new Date(Date.now());
+        let date = now.toString().slice(0, 16);
+        let time = now.toString().slice(16, 21);
+        let eventReview = {
+          date: date,
+          name: this.name.toUpperCase,
+          rating: this.rating,
+          review: this.review.toUpperCase,
+          time: time,
+        };
         this.$emit('submitReview', eventReview);
         this.name = '';
         this.review = '';

@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="hero">
-      <p>...join fake events where ever you are</p>
+      <p>...join fake events in Majorna</p>
     </div>
     <div class="sort">
       <button
@@ -101,7 +101,12 @@
         <i>by: {{ event.company }}</i>
         <span class="green">
           <i class="material-icons">location_on</i>
-          <p>{{ event.location }}</p>
+          <a
+            class="green"
+            :href="address + event.location + city"
+            target="_blank"
+            >{{ event.location }}</a
+          >
         </span>
         <p>{{ event.description }}</p>
         <button
@@ -141,6 +146,8 @@ export default {
       showFilteredEvents: false,
       filteredEvents: [],
       activeFilter: '',
+      address: 'https://www.google.com/maps/search/?api=1&query=',
+      city: '+Göteborg',
     };
   },
   methods: {
@@ -188,7 +195,6 @@ section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
-  background: #eeeeee;
 }
 article {
   display: flex;

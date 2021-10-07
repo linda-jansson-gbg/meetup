@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <main>
     <article v-for="(event, index) in pastEvents" :key="index">
       <span class="yellow">
         <i class="material-icons">today</i>
@@ -9,7 +9,12 @@
       <i>by: {{ event.company }}</i>
       <span class="green">
         <i class="material-icons">location_on</i>
-        <p>{{ event.location }}</p>
+        <a
+          class="green"
+          :href="address + event.location + city"
+          target="_blank"
+          >{{ event.location }}</a
+        >
       </span>
       <p class="description">{{ event.description }}</p>
       <h1 @click="showReview = !showReview" class="reviews">
@@ -47,7 +52,7 @@
         <h1 v-if="showThanks" class="thanks">Thank you for your feedback!</h1>
       </div>
     </article>
-  </section>
+  </main>
 </template>
 
 <script>
@@ -65,6 +70,8 @@ export default {
       showThanks: false,
       showReview: false,
       index: 0,
+      address: 'https://www.google.com/maps/search/?api=1&query=',
+      city: '+Göteborg',
     };
   },
   mounted() {
@@ -111,6 +118,7 @@ article {
 }
 h1.reviews {
   padding: 2rem 0 0.5rem;
+  cursor: pointer;
 }
 ul {
   list-style-type: none;

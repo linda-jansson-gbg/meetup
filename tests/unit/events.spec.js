@@ -32,12 +32,14 @@ describe('Events.vue', () => {
     await button.trigger('click');
     expect(wrapper.emitted('sort')).toBeTruthy();
   });
-  it('should sort the events by location when place button is clicked', async () => {
-    // const button = wrapper.find('.place');
-    // await button.trigger('click');
-    // await wrapper.setProps({ activeSort: 'place' });
-    // const events = await wrapper.findAll('article');
-    // const firstEvent = events.at(0);
-    // expect(firstEvent.text()).toContain('Amiralitetsgatan');
+  it('should sort the events by location', async () => {
+    await wrapper.setProps({
+      events: createEvents().sort((a, b) =>
+        a.location > b.location ? 1 : b.location > a.location ? -1 : 0
+      ),
+    });
+    const events = await wrapper.findAll('article');
+    const firstEvent = events.at(0);
+    expect(firstEvent.text()).toContain('Amiralitetsgatan');
   });
 });

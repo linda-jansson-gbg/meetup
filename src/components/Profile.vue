@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <main>
     <div class="profile" v-if="userEvents.length < 1">
       <h1>
         No events planned.
@@ -20,12 +20,17 @@
       <i>by: {{ event.company }}</i>
       <span class="green">
         <i class="material-icons">location_on</i>
-        <p>{{ event.location }}</p>
+        <a
+          class="green"
+          :href="address + event.location + city"
+          target="_blank"
+          >{{ event.location }}</a
+        >
       </span>
       <p class="description">{{ event.description }}</p>
       <button class="grey" @click="$emit('decline', event.id)">Decline</button>
     </article>
-  </section>
+  </main>
 </template>
 
 <script>
@@ -33,13 +38,18 @@ export default {
   props: {
     userEvents: Array,
   },
+  data() {
+    return {
+      address: 'https://www.google.com/maps/search/?api=1&query=',
+      city: '+Göteborg',
+    };
+  },
   methods: {
     setDate(int) {
       let now = new Date(int * Date.now());
       return now.toString().slice(0, 16);
     },
   },
-  mounted() {},
 };
 </script>
 
@@ -61,27 +71,11 @@ article {
   display: flex;
 }
 button {
-  padding: 0.5rem 1rem;
-  margin-left: 1rem;
-  border-radius: 2rem;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  border: none;
-  background: #46858c;
-  font-weight: bold;
-  color: white;
   margin-top: auto;
   align-self: flex-end;
 }
-.yellow {
-  color: #dead1d;
-}
-.grey {
-  background: #8a8a8a;
-}
-.green {
-  color: #46858c;
+h1 span u {
+  cursor: pointer;
 }
 .description {
   max-width: 40rem;

@@ -13,7 +13,7 @@ export function createEvents() {
     },
     {
       id: 1,
-      company: 'Queenslab',
+      company: 'QueensLab',
       name: 'Bugg för nybörjare',
       description:
         'Kalasigt värre blir det. Fo shizzle daahng dawg. Integizzle semper you son of a bizzle sizzle shiz.',
@@ -104,7 +104,7 @@ export function createEvents() {
       company: 'Volvo',
       name: 'Kickoff inför hösten',
       description:
-        'Välkomna på kickoff i Jonseredsstugan. Maecenizzle my shizz crazy izzle lectus.',
+        'Välkomna på kickoff. Maecenizzle my shizz crazy izzle lectus.',
       date: setDate(1.0009),
       time: '15:15',
       location: 'Kommendörsgatan',
@@ -112,10 +112,10 @@ export function createEvents() {
     },
     {
       id: 10,
-      company: 'Queenslab',
-      name: 'Öl på Queenshead',
+      company: 'QueensLab',
+      name: 'Joina oss queens i Majorna.',
       description:
-        'Inga queens utan kings. Head. Phat eu fo shizzle my nizzle. Aenizzle tempizzle ass boom shackalack.',
+        'Inga kings bara queens. Phat eu fo shizzle my nizzle. Aenizzle tempizzle ass boom shackalack.',
       date: setDate(1.0001),
       time: '18:30',
       location: 'Klareborgsgatan',
@@ -145,7 +145,7 @@ export function createPastEvents() {
         'Phat eu fo shizzle my nizzle. Aenizzle tempizzle ass boom shackalack.',
       date: setDate(0.999),
       time: '10:00',
-      location: 'Volvo Torslanda',
+      location: 'Mariaplan',
       reviews: [
         {
           date: setDate(0.999),
@@ -172,7 +172,7 @@ export function createPastEvents() {
         'Black quizzle. Mauris ligula urna, tempor id, scelerisque venenatizzle.',
       date: setDate(0.998),
       time: '18:00',
-      location: 'Nordstan',
+      location: 'Ölstugan Tullen Majorna',
       reviews: [
         {
           date: setDate(0.9985),

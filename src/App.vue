@@ -1,25 +1,25 @@
 <template>
   <div id="app">
     <Menu :joined="joined" @changeView="changeView" :activeView="activeView" />
-    <main>
-      <Events
-        v-if="activeView === 'events'"
-        :joined="joined"
-        :events="events"
-        :activeSort="activeSort"
-        @sort="handleSort"
-        v-on:decline="handleDecline"
-        v-on:join="handleJoin"
-      />
-      <Profile
-        v-else-if="activeView === 'profile'"
-        :userEvents="userEvents"
-        :events="events"
-        @decline="handleDecline"
-        @changeView="changeView"
-      />
-      <PastEvents v-else-if="activeView === 'past'" @submitReview="addReview" />
-    </main>
+
+    <Events
+      v-if="activeView === 'events'"
+      :joined="joined"
+      :events="events"
+      :activeSort="activeSort"
+      @sort="handleSort"
+      v-on:decline="handleDecline"
+      v-on:join="handleJoin"
+    />
+    <Profile
+      v-else-if="activeView === 'profile'"
+      :userEvents="userEvents"
+      :events="events"
+      @decline="handleDecline"
+      @changeView="changeView"
+    />
+    <PastEvents v-else-if="activeView === 'past'" @submitReview="addReview" />
+
     <Footer />
   </div>
 </template>
@@ -117,6 +117,7 @@ export default {
 body {
   height: 100vh;
   width: 100vw;
+  max-width: 100%;
 }
 footer {
   height: 5rem;
@@ -134,6 +135,7 @@ footer {
 }
 main {
   flex: 1;
+  background: #eeeeee;
 }
 article {
   padding: 1.5rem;
@@ -147,6 +149,7 @@ button {
   background: #46858c;
   font-weight: bold;
   color: white;
+  cursor: pointer;
 }
 .activeView {
   background-color: #4a4a4a;
@@ -167,6 +170,9 @@ h3 {
 .green {
   color: #46858c;
 }
+a {
+  text-decoration: none;
+}
 input,
 textarea,
 select {
@@ -182,6 +188,7 @@ textarea {
 select {
   background: none;
   width: 8rem;
+  cursor: pointer;
 }
 .red {
   border: 1px solid red;

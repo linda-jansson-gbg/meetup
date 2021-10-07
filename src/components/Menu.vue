@@ -45,6 +45,7 @@ header {
 img {
   max-width: 4rem;
   margin-right: auto;
+  cursor: pointer;
 }
 .count {
   margin-left: 0.5rem;

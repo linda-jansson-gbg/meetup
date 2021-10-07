@@ -9,7 +9,12 @@
       <i>by: {{ event.company }}</i>
       <span class="green">
         <i class="material-icons">location_on</i>
-        <p>{{ event.location }}</p>
+        <a
+          class="green"
+          :href="address + event.location + city"
+          target="_blank"
+          >{{ event.location }}</a
+        >
       </span>
       <p>{{ event.description }}</p>
       <button
@@ -33,7 +38,10 @@ export default {
     joined: Array,
   },
   data() {
-    return {};
+    return {
+      address: 'https://www.google.com/maps/search/?api=1&query=',
+      city: '+Göteborg',
+    };
   },
   methods: {
     setDate(int) {
