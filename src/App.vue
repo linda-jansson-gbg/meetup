@@ -95,11 +95,10 @@ export default {
   watch: {
     joined() {
       localStorage.joinedEvents = JSON.stringify(this.joined);
-
       this.userEvents = [];
-      this.events.forEach((event, index) => {
-        if (this.joined.includes(index)) {
-          this.userEvents.push({ ...event, index });
+      this.events.forEach((event) => {
+        if (this.joined.includes(event.id)) {
+          this.userEvents.push({ ...event });
         }
       });
     },
