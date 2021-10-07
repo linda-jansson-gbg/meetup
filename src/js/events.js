@@ -3,9 +3,9 @@ export function createEvents() {
     {
       id: 0,
       company: 'Volvo',
-      name: 'Välkomna Linda',
+      name: 'Kom och säg hej',
       description:
-        'Linda gör sin LIA hos oss från 22 November. Kom och fira in henne på kontoret! Things vehicula laorizzle shut the shizzle up.!',
+        'Linda startar sin LIA i november. Kom och fira in henne på kontoret! Things vehicula laorizzle shut the shizzle up.!',
       date: setDate(1.0022),
       time: '18:20',
       location: 'Gamla Varvsgatan',
@@ -151,8 +151,7 @@ export function createPastEvents() {
           date: setDate(0.999),
           name: 'Johan',
           rating: 4,
-          review:
-            'Överlag helt galet bra. Men platsen kunde ha varit någon annanstans',
+          review: 'Överlag helt galet bra. Men missade också halva eventet.',
           time: '11:24',
         },
         {
@@ -179,7 +178,7 @@ export function createPastEvents() {
           date: setDate(0.9985),
           name: 'Kalle',
           rating: 1,
-          review: 'Det var inte så jävla roligt',
+          review: 'Det var inte bra. Kass trubadur.',
           time: '12:34',
         },
         {

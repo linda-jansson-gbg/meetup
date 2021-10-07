@@ -18,11 +18,7 @@
         @decline="handleDecline"
         @changeView="changeView"
       />
-      <PastEvents
-        v-else-if="activeView === 'past'"
-        @submitReview="addReview"
-        :active="'grey'"
-      />
+      <PastEvents v-else-if="activeView === 'past'" @submitReview="addReview" />
     </main>
     <Footer />
   </div>
@@ -147,7 +143,7 @@ article {
 button {
   padding: 0.5rem 1rem;
   margin-left: 1rem;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   border: none;
   background: #46858c;
   font-weight: bold;

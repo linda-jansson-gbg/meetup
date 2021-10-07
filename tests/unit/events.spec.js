@@ -9,6 +9,7 @@ describe('Events.vue', () => {
       propsData: {
         events: createEvents(),
         joined: [],
+        activeSort: '',
       },
     });
   });
@@ -34,6 +35,7 @@ describe('Events.vue', () => {
   it('should sort the events by location when place button is clicked', async () => {
     // const button = wrapper.find('.place');
     // await button.trigger('click');
+    // await wrapper.setProps({ activeSort: 'place' });
     // const events = await wrapper.findAll('article');
     // const firstEvent = events.at(0);
     // expect(firstEvent.text()).toContain('Amiralitetsgatan');

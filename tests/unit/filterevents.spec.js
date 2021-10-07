@@ -47,7 +47,6 @@ describe('FilterEvents.vue', () => {
   });
   it('should render this months events', () => {
     const events = wrapper.find('article');
-    //const thisMonth = new Date(Date.now()).getMonth();
     const today = new Date();
     const date = today.toUTCString('default', { month: 'short' });
     const thisMonth = date.slice(9, 11);
