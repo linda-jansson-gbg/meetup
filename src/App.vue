@@ -18,7 +18,7 @@
       @decline="handleDecline"
       @changeView="changeView"
     />
-    <PastEvents v-else-if="activeView === 'past'" @submitReview="addReview" />
+    <PastEvents v-else @submitReview="addReview" />
 
     <Footer />
   </div>

@@ -94,7 +94,7 @@ export default {
       this.showThanks = true;
       setTimeout(() => {
         this.showThanks = false;
-      }, 3000);
+      }, 2900);
     },
     showReviews() {
       this.showReviews;
@@ -132,6 +132,11 @@ ul {
 }
 h1.thanks {
   margin-top: 1rem;
+  animation: fadeOut ease 3s;
+  -webkit-animation: fadeOut ease 3s;
+  -moz-animation: fadeOut ease 3s;
+  -o-animation: fadeOut ease 3s;
+  -ms-animation: fadeOut ease 3s;
 }
 span {
   display: flex;
@@ -146,5 +151,17 @@ span i {
   border-bottom: 1px solid #e4e4e4;
   border-top: 1px solid #e4e4e4;
   padding: 0.5rem 0 1rem 0;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 </style>
